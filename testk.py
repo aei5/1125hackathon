@@ -27,11 +27,15 @@ def getText(event):
 
 def putkaraage(event):
     canvas.create_image(0, 0, image=pic1, anchor=tk.NW, tag="oval")
+
 def putbird(event):
     canvas.create_image(0, 0, image=pic2, anchor=tk.NW, tag="oval")
 
 def erase(event):
     canvas.delete("oval")
+
+def dont(event):
+    pass
 
 # label
 static1 = tk.Label(text="test", foreground='#ff0000', background='#90caf9')
@@ -46,6 +50,7 @@ canvas = tk.Canvas(bg="black", width=400, height=300)
 # button
 button1 = tk.Button(text = 'input', width=30)
 button1.bind('<1>', getText)
+button1.bind('<Double-1>', dont)
 button1.bind('<3>', putkaraage)
 
 button2 = tk.Button(text = 'pop', width=30)
@@ -53,7 +58,6 @@ button2.bind('<1>', erase)
 button2.bind('<3>', putbird)
 
 # 各ウィジェットの配置
-
 static1.pack()
 canvas.pack()
 entry.pack()
